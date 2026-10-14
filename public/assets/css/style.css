@@ -1,21 +1,21 @@
-/*  VARIABLES & CONFIGURATION GLOBALE */
+/* VARIABLES & CONFIGURATION GLOBALE */
 :root {
     color-scheme: dark;
 
-    /* Palette de couleurs */
-    --bg-primary: #0f172a;       /* Fond général */
-    --bg-surface: #1e293b;       /* Fond des cartes / blocs */
-    --bg-surface-hover: #334155; /* Survol des éléments */
-    --text-main: #f8fafc;        /* Texte principal */
-    --text-muted: #94a3b8;       /* Texte secondaire */
-    --accent-color: #6366f1;     /* Couleur primaire (Boutons, liens) */
-    --accent-hover: #4f46e5;     /* Survol de l'accent */
-    --danger-color: #ef4444;     /* Bouton supprimer */
-    --danger-hover: #dc2626;
-    --border-color: #334155;     /* Bordures */
+    /* Palette de couleurs (Mode Sombre / Noir, Vert, Blanc, Gris) */
+    --bg-primary: #0a0a0a;        /* Fond général (Noir profond) */
+    --bg-surface: #141414;        /* Fond des cartes / blocs (Gris anthracite très sombre) */
+    --bg-surface-hover: #1f1f1f;  /* Survol des éléments */
+    --text-main: #ffffff;         /* Texte principal (Blanc) */
+    --text-muted: #888888;        /* Texte secondaire (Gris moyen) */
+    --accent-color: #82DD13;      /* Couleur primaire / Boutons (Vert néon) */
+    --accent-hover: #72c40f;      /* Survol de l'accent */
+    --danger-color: #ff4d4d;      /* Bouton supprimer */
+    --danger-hover: #ff3333;
+    --border-color: #262626;      /* Bordures subtiles */
 
     /* Typographie */
-    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-family: 'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     
     /* Espacements & Rayons */
     --spacing-sm: 1rem;
@@ -24,7 +24,7 @@
     --radius: 12px;
 }
 
-/*  RESET & STYLES DE BASE  */
+/* RESET & STYLES DE BASE */
 * {
     margin: 0;
     padding: 0;
@@ -63,6 +63,7 @@ h1 {
     font-size: 2rem;
     font-weight: 700;
     color: var(--text-main);
+    letter-spacing: -0.5px;
 }
 
 body > p:nth-of-type(2) {
@@ -72,7 +73,7 @@ body > p:nth-of-type(2) {
 }
 
 
-/*  STYLES OBLIGATOIRES POUR LE JAVASCRIPT  */
+/* STYLES OBLIGATOIRES POUR LE JAVASCRIPT */
 
 /* Barre de progression */
 .barre-progression-conteneur {
@@ -88,11 +89,11 @@ body > p:nth-of-type(2) {
 #barre-progression {
     height: 100%;
     width: 0;
-    background-color: #047857; 
-    color: white;
+    background-color: var(--accent-color); /* Utilisation du vert néon pour la progression */
+    color: #0a0a0a; /* Texte sombre pour un contraste optimal sur fond vert */
     text-align: center;
     font-size: 0.85rem;
-    font-weight: 600;
+    font-weight: 700;
     line-height: 26px;
     transition: width 0.3s ease;
     white-space: nowrap;
@@ -107,6 +108,7 @@ section {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
 }
 
 h2 {
@@ -145,6 +147,7 @@ h2 {
     border: 1px solid var(--border-color);
     border-radius: var(--radius);
     padding: var(--spacing-md);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
 }
 
 input[type="email"],
@@ -173,17 +176,17 @@ input[type="date"] {
 
 input:focus {
     border-color: var(--accent-color);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+    box-shadow: 0 0 0 3px rgba(130, 221, 19, 0.15);
 }
 
 button[type="submit"] {
     background-color: var(--accent-color);
-    color: var(--text-main);
+    color: #0a0a0a; /* Texte sombre sur fond vert néon */
     border: none;
     padding: 0.75rem 1.25rem;
     border-radius: 8px;
     font-family: var(--font-family);
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
     transition: background-color 0.2s ease;
 }
@@ -209,16 +212,17 @@ button[type="submit"]:hover {
     gap: 12px;
     padding: 12px 16px;
     border: 1px solid var(--border-color);
-    border-left: 4px solid #10b981;
+    border-left: 4px solid var(--accent-color); /* Bordure accentuée en vert néon par défaut */
     border-radius: var(--radius);
     transition: background-color 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 #liste-taches li:hover {
     background-color: var(--bg-surface-hover);
 }
 
-/* Éléments internes des tâches  */
+/* Éléments internes des tâches */
 #liste-taches li input[type="checkbox"] {
     width: 18px;
     height: 18px;
@@ -245,7 +249,7 @@ button[type="submit"]:hover {
 
 #liste-taches li select:focus {
     border-color: var(--accent-color);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+    box-shadow: 0 0 0 3px rgba(130, 221, 19, 0.15);
 }
 
 #liste-taches li input[type="date"] {
@@ -269,7 +273,7 @@ button[type="submit"]:hover {
 
 #liste-taches li button:hover {
     background-color: var(--danger-color);
-    color: #fff;
+    color: #0a0a0a;
 }
 
 /* Classes dynamiques de tâches (Gérées par JS) */
@@ -278,13 +282,13 @@ button[type="submit"]:hover {
     opacity: 0.5;
 }
 
-#liste-taches li.echeance-proche   { border-left-color: #f59e0b;  }
-#liste-taches li.echeance-depassee { border-left-color: #ef4444;  }
+#liste-taches li.echeance-proche   { border-left-color: #f59e0b; }
+#liste-taches li.echeance-depassee { border-left-color: #ff4d4d; }
 
 
-/*  MEDIA QUERIES RESPONSIVE  */
+/* MEDIA QUERIES RESPONSIVE */
 
-/*  Petits mobiles (smartphones étroits)- */
+/* Petits mobiles (smartphones étroits) */
 @media screen and (min-width: 320px) and (max-width: 480px) {
     body {
         padding: 8px;
@@ -322,7 +326,7 @@ button[type="submit"]:hover {
 }
 
 
-/*  Grands mobiles / Petites tablettes en portrait */
+/* Grands mobiles / Petites tablettes en portrait */
 @media screen and (min-width: 481px) and (max-width: 767px) {
     body {
         padding: 12px;
@@ -343,7 +347,7 @@ button[type="submit"]:hover {
 }
 
 
-/*  Tablettes standard (Mode Portrait) */
+/* Tablettes standard (Mode Portrait) */
 @media screen and (min-width: 768px) and (max-width: 1024px) {
     body {
         padding: 20px;
@@ -351,7 +355,7 @@ button[type="submit"]:hover {
 }
 
 
-/*  Tablettes en mode Paysage (Landscape) */
+/* Tablettes en mode Paysage (Landscape) */
 @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     body {
         padding: 16px;
@@ -360,7 +364,7 @@ button[type="submit"]:hover {
 }
 
 
-/*  Petits ordinateurs portables / Écrans moyens */
+/* Petits ordinateurs portables / Écrans moyens */
 @media screen and (min-width: 1025px) and (max-width: 1280px) {
     body {
         padding: 24px;
@@ -369,7 +373,7 @@ button[type="submit"]:hover {
 }
 
 
-/*  Grands écrans / Bureaux (Desktops) */
+/* Grands écrans / Bureaux (Desktops) */
 @media screen and (min-width: 1281px) {
     body {
         padding: 32px;
